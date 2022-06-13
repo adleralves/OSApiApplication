@@ -22,10 +22,17 @@ public class OrdemServicoService {
     @Autowired
     private OrdemServicoRepository ordemServicoRepository;
     
+    
     public OrdemServico criar(OrdemServico ordemServico) {
         ordemServico.setStatus(StatusOrdemServico.ABERTA);
         ordemServico.setDataAbertura(LocalDateTime.now());
         
         return ordemServicoRepository.save(ordemServico);
     }
+    
+        public void excluir(Long clienteId) {
+        ordemServicoRepository.deleteById(clienteId);
+    }
+    
+    
 }
